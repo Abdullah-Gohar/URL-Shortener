@@ -22,7 +22,7 @@ def redirect_url(response,id):
     return redirect(item.link)
     
 
-def shorten_url(url, base_url= "http://127.0.0.1:8000/"):
+def shorten_url(url, base_url="https://trimly.herokuapp/"):
     return base_url+str(random.randint(0,100000000))
 
 def add_https(url:str):
