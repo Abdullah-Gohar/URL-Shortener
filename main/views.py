@@ -4,5 +4,11 @@ from django.http import HttpResponse
 
 
 def index(response):
+    if response.method == "POST":
+        print(response.POST["url"])
+        return render(response,'main/index.html',{'hidden' : False,'shortened':'https://www.google.com/'})
+        
+        
     # return HttpResponse("<h1>Trimly</h1>")
-    return render(response,'main/index.html',{})
+    else:
+        return render(response,'main/index.html',{'hidden' : True,'shortened':''})
