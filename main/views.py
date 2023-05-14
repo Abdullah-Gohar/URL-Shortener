@@ -21,7 +21,7 @@ def redirect_url(response,id):
     
     return redirect(item.link)
     
-def shorten_url(url, base_url="https://trimly.herokuapp.com/"):
+def shorten_url(url, base_url="http://www.trimly.info"):
     while True:
         rand_num = random.randint(0, 1_000_000)
         if Url.objects.filter(id=rand_num).exists():
