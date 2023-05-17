@@ -1,19 +1,6 @@
 
-from django.contrib import admin
 from django.forms import URLField
 from django.core.exceptions import ValidationError
-from django.core.validators import URLValidator
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('',views.index,name="index"),
-    path('admin/', admin.site.urls),
-    path('<str:id>',views.redirect_url,name="redirect"),
-]
-
-
-
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Url
