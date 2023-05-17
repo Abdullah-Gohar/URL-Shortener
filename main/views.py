@@ -40,7 +40,7 @@ def redirect_url(response,id):
         item = Url.objects.get(id=id)
     # If element does not exist
     except:
-        return HttpResponse("Invalid URL")
+        return HttpResponse("<h1>Invalid URL</h1>")
     
     
     return redirect(item.link)
