@@ -16,7 +16,10 @@ def index(response):
 
 
 def redirect_url(response,id):
-    item = Url.objects.get(id=id)
+    try:
+        item = Url.objects.get(id=id)
+    except:
+        return HttpResponse("Invalid URL")
     
     
     return redirect(item.link)
