@@ -50,4 +50,3 @@ class TrimlyTestCase(TestCase):
         except ValidationError:
             return ValidationError
         return None
-
