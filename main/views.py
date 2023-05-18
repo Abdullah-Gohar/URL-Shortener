@@ -16,7 +16,7 @@ def index(response):
     # Check if the form was submitted.
     if response.method == "POST":
         
-        if "trimly.com" in response.POST["url"]:
+        if "trimly.info" in response.POST["url"]:
             id = response.POST["url"].split('/')[-1]
             if id.isdigit() and Url.objects.filter(id=id).exists():
                 args['shortened'] = response.POST["url"]
