@@ -96,21 +96,3 @@ def validate_url(url):
 
 
     return True
-
-"""
-Slide 1:
-Deployment & Hosting
-
---> Heroku for hosting
-
---> GoDaddy for domain services
-
-
-Slide 2:
-Heroku
-
-
-Slide 3:
-GoDaddy
-
-"""
