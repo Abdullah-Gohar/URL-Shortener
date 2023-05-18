@@ -26,13 +26,14 @@ def index(response):
         # Validate the URL.
         if validate_url(response.POST["url"]) == True:
             # Shorten the URL.
-            if Url.objects.filter(link=add_https(response.POST["url"])).exists():
-               item = Url.objects.get(link=add_https(response.POST["url"]))
+            link = add_https(response.POST["url"])
+            if Url.objects.filter(link=link).exists():
+               item = Url.objects.get(link=link)
                shortened = item.shortened
             else:
                 shortened = shorten_url(response.POST["url"])
                 # Save the URL to the database.
-                Url(id=shortened.split('/')[-1], link=add_https(response.POST["url"]), shortened=shortened).save()
+                Url(id=shortened.split('/')[-1], link=link, shortened=shortened).save()
             # Set the return values.
             args['hidden'] = False
             args['shortened'] = shortened
