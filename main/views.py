@@ -15,6 +15,14 @@ def index(response):
 
     # Check if the form was submitted.
     if response.method == "POST":
+        
+        if "trimly.com" in response.POST["url"]:
+            id = response.POST["url"].split('/')[-1]
+            if id.isdigit() and Url.objects.filter(id=id).exists():
+                args['shortened'] = response.POST["url"]
+                args['hidden'] = False
+                return render(response, 'main/index.html', args)
+            
         # Validate the URL.
         if validate_url(response.POST["url"]) == True:
             # Shorten the URL.
@@ -78,9 +86,26 @@ def validate_url(url):
     url_form_field = URLField()
     try:
         url = url_form_field.clean(url)
-        print(url)
     except ValidationError:
         return False
 
 
     return True
+
+"""
+Slide 1:
+Deployment & Hosting
+
+--> Heroku for hosting
+
+--> GoDaddy for domain services
+
+
+Slide 2:
+Heroku
+
+
+Slide 3:
+GoDaddy
+
+"""
